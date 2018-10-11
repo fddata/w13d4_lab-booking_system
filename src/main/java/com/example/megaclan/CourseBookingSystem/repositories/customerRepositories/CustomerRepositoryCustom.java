@@ -10,4 +10,5 @@ public interface CustomerRepositoryCustom {
     List<Customer> getAllCustomersForCourse(Long course_id);
 
     List<Customer> getAllCustomersForTownForCourse(String town, Long course_id);
+    List<Customer> getAllCustomersForTownForCourseOverAge(String town, Long course_id, int age);
 }

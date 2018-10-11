@@ -63,4 +63,14 @@ public class CourseBookingSystemApplicationTests {
 		List<Customer> found = customerRepository.getAllCustomersForTownForCourse("Inverness", 1L);
 		assertEquals(2, found.size());
 	}
+
+	@Test
+	public void canGetAllCustomersForTownForCourseOverAge() {
+		List<Customer> foundAll = customerRepository.getAllCustomersForTownForCourseOverAge("Inverness", 1L, 25);
+		assertEquals(2, foundAll.size());
+		List<Customer> foundOne = customerRepository.getAllCustomersForTownForCourseOverAge("Inverness", 1L, 35);
+		assertEquals(1, foundOne.size());
+		List<Customer> foundNone = customerRepository.getAllCustomersForTownForCourseOverAge("Inverness", 1L, 50);
+		assertEquals(0, foundNone.size());
+	}
 }
