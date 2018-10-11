@@ -1,17 +1,27 @@
 package com.example.megaclan.CourseBookingSystem.models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "courses")
 public class Course {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "town")
     private String town;
 
+    @Column(name = "rating")
     private int rating;
 
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
     public Course(String name, String town, int rating) {
