@@ -1,6 +1,7 @@
 package com.example.megaclan.CourseBookingSystem;
 
 import com.example.megaclan.CourseBookingSystem.models.Course;
+import com.example.megaclan.CourseBookingSystem.models.Customer;
 import com.example.megaclan.CourseBookingSystem.repositories.bookingRepositories.BookingRepository;
 import com.example.megaclan.CourseBookingSystem.repositories.courseRepositories.CourseRepository;
 import com.example.megaclan.CourseBookingSystem.repositories.customerRepositories.CustomerRepository;
@@ -36,5 +37,11 @@ public class CourseBookingSystemApplicationTests {
 		List<Course> found = courseRepository.getCoursesWithRating(1);
 		assertEquals(1, found.size());
 		assertEquals("JobbyCourse", found.get(0).getName());
+	}
+
+	@Test
+	public void canGetAllCustomersForCourse() {
+		List<Customer> found = customerRepository.getAllCustomersForCourse(2L);
+		assertEquals(2, found.size());
 	}
 }
