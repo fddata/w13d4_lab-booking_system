@@ -1,5 +1,6 @@
 package com.example.megaclan.CourseBookingSystem;
 
+import com.example.megaclan.CourseBookingSystem.models.Booking;
 import com.example.megaclan.CourseBookingSystem.models.Course;
 import com.example.megaclan.CourseBookingSystem.models.Customer;
 import com.example.megaclan.CourseBookingSystem.repositories.bookingRepositories.BookingRepository;
@@ -48,6 +49,12 @@ public class CourseBookingSystemApplicationTests {
 	@Test
 	public void canGetAllCoursesForCustomer() {
 		List<Course> found = courseRepository.getAllCoursesForCustomer(2L);
+		assertEquals(2, found.size());
+	}
+
+	@Test
+	public void canGetAllBookingsForDate() {
+		List<Booking> found = bookingRepository.getAllBookingsForDate("01-01-19");
 		assertEquals(2, found.size());
 	}
 }
