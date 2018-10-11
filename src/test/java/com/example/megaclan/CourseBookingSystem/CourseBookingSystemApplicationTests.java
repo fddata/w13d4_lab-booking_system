@@ -57,4 +57,10 @@ public class CourseBookingSystemApplicationTests {
 		List<Booking> found = bookingRepository.getAllBookingsForDate("01-01-19");
 		assertEquals(2, found.size());
 	}
+
+	@Test
+	public void canGetAllCustomersForTownForCourse() {
+		List<Customer> found = customerRepository.getAllCustomersForTownForCourse("Inverness", 1L);
+		assertEquals(2, found.size());
+	}
 }
